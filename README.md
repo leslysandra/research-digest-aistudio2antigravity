@@ -4,7 +4,7 @@ A two-agent research digest app, originally built in Google AI Studio and export
 Google Antigravity using the new one-click **Export to Antigravity** feature (I/O 2026).
 
 This repo is the companion project to the blog post
-**["The One-Click Exporter: AI Studio → Antigravity, Probed to Its Limits"](#)**
+**["The One-Click Exporter: AI Studio → Antigravity, Probed to Its Limits"](https://dev.to/gde/the-one-click-exporter-ai-studio-antigravity-probed-to-its-limits-171e)**
 — a hands-on account of exactly what transfers, what doesn't, and what breaks when you
 move a real multi-agent prototype from AI Studio's web UI to a local Antigravity workspace.
 
@@ -82,19 +82,3 @@ MIT (or update as preferred).
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-https://ai.studio/apps/74e963a2-ad30-4c1b-b486-f005dbf3387c
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
