@@ -1,0 +1,30 @@
+{
+  "entities": {
+    "SavedDigest": {
+      "title": "SavedDigest",
+      "description": "A synthesized research digest",
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "number"
+        },
+        "researcherFindings": {
+          "type": "array"
+        },
+        "editorDigest": {
+          "type": "object"
+        }
+      },
+      "required": ["topic", "timestamp", "researcherFindings", "editorDigest"]
+    }
+  },
+  "firestore": {
+    "/digests/{digestId}": {
+      "schema": "SavedDigest",
+      "description": "Historical collection of synthesized research digests"
+    }
+  }
+}

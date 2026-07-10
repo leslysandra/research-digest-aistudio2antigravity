@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-editorial-terracotta: #A64D32;
+  --color-editorial-bg: #FDFCFB;
+  --color-editorial-sidebar: #F9F7F2;
+  --color-editorial-panel: #F4F1EC;
+  --color-editorial-text: #1A1A1A;
+}
+
+body {
+  background-color: var(--color-editorial-bg);
+  color: var(--color-editorial-text);
+  font-family: var(--font-sans);
+}
+
+/* Custom styled scrollbars to match Editorial design */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 26, 26, 0.3);
+}

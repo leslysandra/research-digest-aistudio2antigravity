@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global safety net: default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Public digests collection
+    match /digests/{digestId} {
+      // Publicly readable so visitors can view synthesized archives
+      allow read, list: if true;
+      
+      // Allow creation of structured digests with strict validation
+      allow create: if isValidDigest(request.resource.data);
+      
+      // Prevent modifications or deletions to secure historical integrity
+      allow update, delete: if false;
+    }
+
+    // Validation helper to verify content structures without Auth requirements
+    function isValidDigest(data) {
+      return data.topic is string 
+        && data.topic.size() > 0 
+        && data.topic.size() <= 256
+        && data.timestamp is int
+        && data.researcherFindings is list
+        && data.researcherFindings.size() <= 15
+        && data.editorDigest is map
+        && data.editorDigest.keys().hasAll(['intro', 'bullets', 'takeaway'])
+        && data.editorDigest.keys().size() == 3
+        && data.editorDigest.intro is string
+        && data.editorDigest.intro.size() <= 2000
+        && data.editorDigest.bullets is list
+        && data.editorDigest.bullets.size() <= 15
+        && data.editorDigest.takeaway is string
+        && data.editorDigest.takeaway.size() <= 2000;
+    }
+  }
+}
